@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Respawn — All Gaming News, One Feed</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#0B0D10;
+    --panel:#14171C;
+    --panel-2:#1A1E24;
+    --line:#262B33;
+    --text:#ECEDEE;
+    --text-dim:#9AA1AC;
+    --lime:#C8FF4D;
+    --ps:#2E7DE1;
+    --xbox:#5FB726;
+    --nin:#E4472A;
+    --pc:#9B6BFF;
+  }
+  *{box-sizing:border-box; margin:0; padding:0;}
+  body{
+    background:var(--bg);
+    color:var(--text);
+    font-family:'Inter', sans-serif;
+    line-height:1.5;
+  }
+  h1,h2,h3,.display{
+    font-family:'Rajdhani', sans-serif;
+    text-transform:uppercase;
+    letter-spacing:0.03em;
+  }
+  a{color:inherit; text-decoration:none;}
+
+  /* ticker */
+  .ticker-wrap{
+    background:var(--lime);
+    color:#0B0D10;
+    overflow:hidden;
+    white-space:nowrap;
+    font-family:'Rajdhani', sans-serif;
+    font-weight:700;
+    font-size:13px;
+    letter-spacing:0.06em;
+    text-transform:uppercase;
+    padding:7px 0;
+  }
+  .ticker{
+    display:inline-block;
+    animation:scroll 32s linear infinite;
+  }
+  .ticker span{margin-right:48px;}
+  @keyframes scroll{
+    0%{transform:translateX(0);}
+    100%{transform:translateX(-50%);}
+  }
+
+  /* header */
+  header{
+    max-width:1100px;
+    margin:0 auto;
+    padding:36px 24px 20px;
+    display:flex;
+    align-items:baseline;
+    justify-content:space-between;
+    border-bottom:1px solid var(--line);
+  }
+  .logo{
+    font-size:30px;
+    font-weight:700;
+    display:flex;
+    align-items:center;
+    gap:10px;
+  }
+  .logo .dot{
+    width:10px; height:10px;
+    background:var(--lime);
+    border-radius:50%;
+    display:inline-block;
+  }
+  .tagline{
+    font-size:13px;
+    color:var(--text-dim);
+    font-family:'Inter';
+    text-transform:none;
+    letter-spacing:0;
+  }
+
+  main{max-width:1100px; margin:0 auto; padding:32px 24px 80px;}
+
+  /* filters */
+  .filters{
+    display:flex;
+    gap:10px;
+    flex-wrap:wrap;
+    margin-bottom:32px;
+  }
+  .filter-btn{
+    font-family:'Rajdhani', sans-serif;
+    font-weight:600;
+    text-transform:uppercase;
+    letter-spacing:0.04em;
+    font-size:13px;
+    padding:8px 16px;
+    border-radius:999px;
+    border:1px solid var(--line);
+    background:var(--panel);
+    color:var(--text-dim);
+    cursor:pointer;
+    transition:all .15s ease;
+  }
+  .filter-btn:hover{border-color:var(--text-dim); color:var(--text);}
+  .filter-btn.active{background:var(--lime); color:#0B0D10; border-color:var(--lime);}
+
+  /* grid */
+  .grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fill, minmax(310px, 1fr));
+    gap:18px;
+  }
+  .card{
+    background:var(--panel);
+    border:1px solid var(--line);
+    border-left:4px solid var(--tag-color, var(--lime));
+    border-radius:6px;
+    padding:20px;
+    display:flex;
+    flex-direction:column;
+    gap:12px;
+    transition:transform .15s ease, border-color .15s ease;
+  }
+  .card:hover{transform:translateY(-2px); border-color:var(--line);}
+  .card-top{display:flex; justify-content:space-between; align-items:center;}
+  .tag{
+    font-family:'Rajdhani';
+    font-weight:700;
+    font-size:12px;
+    letter-spacing:0.08em;
+    text-transform:uppercase;
+    color:var(--tag-color, var(--lime));
+  }
+  .time{font-size:12px; color:var(--text-dim);}
+  .headline{
+    font-family:'Rajdhani';
+    font-size:19px;
+    font-weight:600;
+    text-transform:none;
+    letter-spacing:0;
+    line-height:1.3;
+  }
+  .summary{font-size:14px; color:var(--text-dim); flex-grow:1;}
+  .source-row{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    font-size:12px;
+    color:var(--text-dim);
+    border-top:1px solid var(--line);
+    padding-top:10px;
+  }
+  .source-row .read{color:var(--lime); font-weight:600;}
+
+  footer{
+    text-align:center;
+    padding:32px 24px 48px;
+    color:var(--text-dim);
+    font-size:12px;
+  }
+</style>
+</head>
+<body>
+
+<div class="ticker-wrap">
+  <div class="ticker">
+    <span>EA'S $55B SAUDI PIF BUYOUT SET TO CLOSE AUGUST 4</span>
+    <span>PS5 LIFETIME SALES PASS 95 MILLION UNITS</span>
+    <span>XBOX TESTS FREE AD-SUPPORTED CLOUD GAMING TIER</span>
+    <span>NINTENDO SWITCH ONLINE ADDS CLASSIC GAMECUBE TITLE AUG 13</span>
+    <span>RAM SHORTAGE THREATENS CONSOLE PRICING INDUSTRY-WIDE</span>
+    <span>EA'S $55B SAUDI PIF BUYOUT SET TO CLOSE AUGUST 4</span>
+    <span>PS5 LIFETIME SALES PASS 95 MILLION UNITS</span>
+    <span>XBOX TESTS FREE AD-SUPPORTED CLOUD GAMING TIER</span>
+    <span>NINTENDO SWITCH ONLINE ADDS CLASSIC GAMECUBE TITLE AUG 13</span>
+    <span>RAM SHORTAGE THREATENS CONSOLE PRICING INDUSTRY-WIDE</span>
+  </div>
+</div>
+
+<header>
+  <div>
+    <div class="logo"><span class="dot"></span>RESPAWN</div>
+    <div class="tagline">Every platform. One feed. No fanboys.</div>
+  </div>
+</header>
+
+<main>
+  <div class="filters" id="filters">
+    <button class="filter-btn active" data-filter="all">All</button>
+    <button class="filter-btn" data-filter="playstation">PlayStation</button>
+    <button class="filter-btn" data-filter="xbox">Xbox</button>
+    <button class="filter-btn" data-filter="nintendo">Nintendo</button>
+    <button class="filter-btn" data-filter="pc">PC / Industry</button>
+  </div>
+
+  <div class="grid" id="grid">
+
+    <div class="card" data-platform="playstation" style="--tag-color:var(--ps)">
+      <div class="card-top"><span class="tag">PlayStation</span><span class="time">1d ago</span></div>
+      <div class="headline">PS5 crosses 95 million lifetime consoles sold, but quarterly sales cool off</div>
+      <div class="summary">Sony's latest figures put PS5 at roughly 95.3 million units sold as of the end of June, though quarter-over-quarter sales dropped sharply compared to last year.</div>
+      <div class="source-row"><span>Push Square</span><span class="read">Read more →</span></div>
+    </div>
+
+    <div class="card" data-platform="playstation" style="--tag-color:var(--ps)">
+      <div class="card-top"><span class="tag">PlayStation</span><span class="time">1w ago</span></div>
+      <div class="headline">Sony says it's still listening on the disc-free PS5 backlash, but plans move forward anyway</div>
+      <div class="summary">Sony's leadership acknowledged pushback over dropping physical discs while confirming the company intends to keep pursuing a more digital-first future.</div>
+      <div class="source-row"><span>VGC</span><span class="read">Read more →</span></div>
+    </div>
+
+    <div class="card" data-platform="xbox" style="--tag-color:var(--xbox)">
+      <div class="card-top"><span class="tag">Xbox</span><span class="time">Yesterday</span></div>
+      <div class="headline">Xbox trials a free, ad-supported way to access Cloud Gaming</div>
+      <div class="summary">Microsoft is testing a new tier of Xbox Cloud Gaming that's free to use but supported by ads, currently rolling out to Xbox Insiders.</div>
+      <div class="source-row"><span>Pure Xbox</span><span class="read">Read more →</span></div>
+    </div>
+
+    <div class="card" data-platform="xbox" style="--tag-color:var(--xbox)">
+      <div class="card-top"><span class="tag">Xbox</span><span class="time">2d ago</span></div>
+      <div class="headline">Xbox CEO lays out four priorities meant to drive growth this fiscal year</div>
+      <div class="summary">Asha Sharma outlined the company's key focus areas going forward, part of a broader push to grow Xbox revenue across platforms.</div>
+      <div class="source-row"><span>GameRant</span><span class="read">Read more →</span></div>
+    </div>
+
+    <div class="card" data-platform="xbox" style="--tag-color:var(--xbox)">
+      <div class="card-top"><span class="tag">Xbox</span><span class="time">2d ago</span></div>
+      <div class="headline">Game Pass closes out July 2026 with a cozy pirate adventure</div>
+      <div class="summary">The final addition to July's Game Pass lineup is a relaxed, replayable pirate-themed title, rounding out the month's slate of releases.</div>
+      <div class="source-row"><span>GameRant</span><span class="read">Read more →</span></div>
+    </div>
+
+    <div class="card" data-platform="nintendo" style="--tag-color:var(--nin)">
+      <div class="card-top"><span class="tag">Nintendo</span><span class="time">2d ago</span></div>
+      <div class="headline">A beloved GameCube classic is finally joining Switch Online on August 13</div>
+      <div class="summary">Nintendo confirmed one of its most requested GameCube-era games will land in the Switch Online library's expansion pack next month.</div>
+      <div class="source-row"><span>GameRant</span><span class="read">Read more →</span></div>
+    </div>
+
+    <div class="card" data-platform="nintendo" style="--tag-color:var(--nin)">
+      <div class="card-top"><span class="tag">Nintendo</span><span class="time">1w ago</span></div>
+      <div class="headline">Splatoon Raiders tops Japan's physical sales chart out of the gate</div>
+      <div class="summary">The solo Splatoon spin-off moved close to half a million physical copies in Japan in its opening weekend, while Mario Kart World and Tomodachi Life keep racking up milestones.</div>
+      <div class="source-row"><span>VGC</span><span class="read">Read more →</span></div>
+    </div>
+
+    <div class="card" data-platform="pc" style="--tag-color:var(--pc)">
+      <div class="card-top"><span class="tag">Industry</span><span class="time">Recent</span></div>
+      <div class="headline">A global RAM shortage is starting to squeeze the whole gaming industry</div>
+      <div class="summary">Memory and storage price spikes are reportedly pushing Nintendo and PlayStation to weigh price hikes or delays, and have already forced Valve to push back the Steam Machine.</div>
+      <div class="source-row"><span>Tom's Guide</span><span class="read">Read more →</span></div>
+    </div>
+
+    <div class="card" data-platform="pc" style="--tag-color:var(--pc)">
+      <div class="card-top"><span class="tag">Industry</span><span class="time">Recent</span></div>
+      <div class="headline">Steam Deck OLED supply is drying up as the memory crisis bites</div>
+      <div class="summary">Valve confirmed the Steam Deck OLED may go intermittently out of stock, adding to concerns about how the RAM shortage will affect the upcoming Steam Machine too.</div>
+      <div class="source-row"><span>Tom's Guide</span><span class="read">Read more →</span></div>
+    </div>
+
+    <div class="card" data-platform="pc" style="--tag-color:var(--pc)">
+      <div class="card-top"><span class="tag">Industry</span><span class="time">Recent</span></div>
+      <div class="headline">EA's $55 billion Saudi-backed buyout is on track to close August 4</div>
+      <div class="summary">EA says the regulatory approvals needed for its acquisition by a Saudi investment group have all been secured, putting the deal on track to finalize next week.</div>
+      <div class="source-row"><span>VGC</span><span class="read">Read more →</span></div>
+    </div>
+
+  </div>
+</main>
+
+<footer>
+  Respawn — built for you. Headlines summarized from GameRant, Push Square, Pure Xbox, VGC and Tom's Guide. Click through to read full stories at the source.
+</footer>
+
+<script>
+  const buttons = document.querySelectorAll('.filter-btn');
+  const cards = document.querySelectorAll('.card');
+  buttons.forEach(btn => {
+    btn.addEventListener('click', () => {
+      buttons.forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      const filter = btn.dataset.filter;
+      cards.forEach(card => {
+        card.style.display = (filter === 'all' || card.dataset.platform === filter) ? 'flex' : 'none';
+      });
+    });
+  });
+</script>
+
+</body>
+</html>
